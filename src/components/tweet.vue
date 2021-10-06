@@ -1,9 +1,8 @@
 <template>
 
-<hr />
-<h3>これまでのツイート</h3>
     <div class="past_tweet">
-        {{first_tweet}}
+        <!-- 受け取った配列のキー番目を表示 -->
+        {{tweet_msg[number]}}
     </div>
 </template>
 
@@ -13,8 +12,13 @@ export default{
     name:'tweet',
     data(){
         return{
-            first_tweet: "こんにちは"
+            first_tweet: "こんにちは",
         }
+    },
+    props:{
+        // ツイートの受け取り
+        tweet_msg: Object,
+        number:Number,
     },
 }
 </script>
@@ -23,7 +27,9 @@ export default{
 .past_tweet{
     border:  1px solid gray;
     padding: 10px;
+    margin-bottom: 50px;
     border-radius: 5px;
     text-align: left;
+    max-width:280px;
 }
 </style>
